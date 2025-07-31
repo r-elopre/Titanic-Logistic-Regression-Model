@@ -1,9 +1,9 @@
 # Titanic Logistic Regression Model
 
 ## Project Overview
-This project trains a logistic regression model to predict passenger survival on the Titanic using the preprocessed dataset `train_scaled.csv`. The goal is to build a baseline machine learning model for binary classification (survived or not survived), evaluate its performance, and visualize the results. The project includes data loading, train-test split, model training, evaluation with accuracy and confusion matrix, visualization using Seaborn, and saving predictions to a CSV file. Additionally, a bar chart visualizes the distribution of predicted outcomes. This serves as a foundational exercise in machine learning, demonstrating key skills like data preprocessing, model training, evaluation, and visualization.
+This project trains a logistic regression model to predict passenger survival on the Titanic using the preprocessed dataset `train_scaled.csv`. The goal is to build a baseline machine learning model for binary classification (survived or not survived), evaluate its performance, and visualize the results. The project includes data loading, train-test split, model training, evaluation with accuracy and confusion matrix, visualization using Seaborn, and saving predictions to a CSV file. This serves as a foundational exercise in machine learning, demonstrating key skills like data preprocessing, model training, and evaluation.
 
-The project is implemented in Python scripts (`titanic_model_logreg.py` and `plot_predictions_distribution.py`) and documented in a Markdown file (`titanic_logreg_documentation.md`) for portfolio purposes.
+The project is implemented in a Python script (`titanic_model_logreg.py`) and documented in a Markdown file (`titanic_logreg_documentation.md`) for portfolio purposes.
 
 ## Dataset
 The dataset (`train_scaled.csv`) contains 891 rows and 18 columns, with the following features:
@@ -18,7 +18,7 @@ The dataset (`train_scaled.csv`) contains 891 rows and 18 columns, with the foll
 - **Preprocessing**: Numerical features are scaled (mean ~0, std ~1), and categorical features are one-hot encoded, making the data suitable for logistic regression.
 
 ## Methodology
-The main script (`titanic_model_logreg.py`) executes the following steps:
+The Python script (`titanic_model_logreg.py`) executes the following steps:
 1. **Load Libraries**: Imports `pandas`, `numpy`, `scikit-learn`, `seaborn`, and `matplotlib` for data handling, modeling, and visualization.
 2. **Load and Inspect Data**: Loads `train_scaled.csv`, checks for missing values, and displays class distribution.
 3. **Prepare Features and Target**: Excludes `PassengerId` and `Survived` from features (`X`), sets `Survived` as the target (`y`).
@@ -29,11 +29,6 @@ The main script (`titanic_model_logreg.py`) executes the following steps:
 8. **Visualize Confusion Matrix**: Creates a heatmap using Seaborn, saved as `confusion_matrix.png`.
 9. **Save Predictions**: Saves test predictions with `PassengerId` to `titanic_logreg_predictions.csv`.
 10. **Summary**: Prints a summary of the process and outcomes.
-
-A secondary script (`plot_predictions_distribution.py`) generates a bar chart of the predicted `Survived` distribution:
-1. Loads `titanic_logreg_predictions.csv`.
-2. Calculates the count of each predicted outcome (0 or 1).
-3. Creates a bar chart using Seaborn, saved as `predictions_distribution.png`.
 
 ## Results
 The model was trained and evaluated, producing the following results:
@@ -60,39 +55,33 @@ The model was trained and evaluated, producing the following results:
   - False Negatives (Survived, predicted as Not Survived): 18
   - True Positives (Survived, predicted correctly): 56
 
-### Visualizations
-1. **Confusion Matrix**:
-   ```
-                   Predicted
-                  | Not Survived | Survived |
-   Actual Not Survived |     91      |    14    |
-   Actual Survived     |     18      |    56    |
-   ```
-   A heatmap is saved as `confusion_matrix.png` in the project directory.
-
-2. **Prediction Distribution**:
-   A bar chart shows the distribution of predicted outcomes (105 Not Survived, 74 Survived), saved as `predictions_distribution.png`. This visualizes the model’s tendency to predict slightly more non-survivors, consistent with the dataset’s class imbalance.
+### Confusion Matrix Visualization
+Below is an ASCII representation of the confusion matrix for quick reference:
+```
+                 Predicted
+                | Not Survived | Survived |
+Actual Not Survived |     91      |    14    |
+Actual Survived     |     18      |    56    |
+```
+A detailed heatmap is saved as `confusion_matrix.png` in the project directory.
 
 - **Outputs**:
-  - **Plots**: `confusion_matrix.png`, `predictions_distribution.png`
-  - **Predictions**: `titanic_logreg_predictions.csv`
+  - **Plot**: Confusion matrix saved as `confusion_matrix.png`.
+  - **Predictions**: Test predictions saved as `titanic_logreg_predictions.csv`.
 
 ## Key Learnings
 - **Train-Test Split**: Ensures model evaluation on unseen data, preventing overfitting.
 - **Logistic Regression**: A robust baseline for binary classification, effective with preprocessed data.
 - **Evaluation Metrics**: Accuracy provides an overall performance measure; the confusion matrix and classification report offer detailed insights into class-specific performance.
-- **Visualization**: Seaborn’s heatmap and bar chart enhance interpretability of model performance and prediction distribution.
+- **Visualization**: Seaborn’s heatmap and ASCII representation enhance interpretability of the confusion matrix.
 - **Baseline Models**: Logistic regression serves as a benchmark for comparing more complex models.
 
 ## Files
-- **Scripts**:
-  - `titanic_model_logreg.py` (main script, located at `C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\titanic_model_logreg\titanic_model_logreg.py`)
-  - `plot_predictions_distribution.py` (graph script, save in the same directory)
-- **Dataset**: `train_scaled.csv` (located at `C:\Users\ri\OneDrive\ai project\data cleaning\titanic\data\train_scaled.csv`)
+- **Script**: `titanic_model_logreg.py` (main Python script, located at `C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\titanic_model_logreg\titanic_model_logreg.py`)
+- **Dataset**: `train_scaled.csv` (preprocessed Titanic dataset, located at `C:\Users\ri\OneDrive\ai project\data cleaning\titanic\data\train_scaled.csv`)
 - **Outputs**:
   - `titanic_logreg_predictions.csv` (test predictions, located at `C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\data\titanic_logreg_predictions.csv`)
-  - `confusion_matrix.png` (confusion matrix visualization)
-  - `predictions_distribution.png` (prediction distribution bar chart)
+  - `confusion_matrix.png` (confusion matrix visualization, saved in the script’s working directory)
 - **Documentation**: `titanic_logreg_documentation.md` (detailed project documentation)
 
 ## Requirements
@@ -102,7 +91,6 @@ The model was trained and evaluated, producing the following results:
   pip install pandas numpy scikit-learn seaborn matplotlib
   ```
 - **Dataset**: Place `train_scaled.csv` in `C:\Users\ri\OneDrive\ai project\data cleaning\titanic\data\`
-- **Predictions**: Ensure `titanic_logreg_predictions.csv` is in `C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\data\`
 
 ## Installation and Setup
 1. Clone or download the project repository.
@@ -116,33 +104,27 @@ The model was trained and evaluated, producing the following results:
    ```bash
    pip install pandas numpy scikit-learn seaborn matplotlib
    ```
-4. Ensure `train_scaled.csv` and `titanic_logreg_predictions.csv` are in the specified directories.
+4. Ensure `train_scaled.csv` is in `C:\Users\ri\OneDrive\ai project\data cleaning\titanic\data\`.
 
 ## Usage
 1. Navigate to the project directory:
    ```bash
    cd C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\titanic_model_logreg
    ```
-2. Run the main script to train the model and generate predictions:
+2. Run the script:
    ```bash
    python titanic_model_logreg.py
    ```
-3. Run the graph script to generate the prediction distribution plot:
-   ```bash
-   python plot_predictions_distribution.py
-   ```
-4. Check outputs:
-   - Console: Displays data inspection, accuracy, classification report, and confusion matrix (main script); or distribution counts (graph script).
-   - Files: `titanic_logreg_predictions.csv`, `confusion_matrix.png`, `predictions_distribution.png`.
-5. Review documentation in `titanic_logreg_documentation.md` for detailed methodology.
+3. Check outputs:
+   - Console: Displays data inspection, accuracy, classification report, and confusion matrix.
+   - Files: `titanic_logreg_predictions.csv` (in `C:\Users\ri\OneDrive\ai project\model\Titanic Logistic Regression\data\`) and `confusion_matrix.png` (in the script’s working directory).
+4. Review documentation in `titanic_logreg_documentation.md` for detailed methodology.
 
 ## Expected Output
-- **Main Script**:
-  - Console output with dataset details, accuracy (~0.8212), classification report, and confusion matrix.
-  - Files: `titanic_logreg_predictions.csv`, `confusion_matrix.png`.
-- **Graph Script**:
-  - Console output with prediction distribution (e.g., 105 Not Survived, 74 Survived).
-  - File: `predictions_distribution.png` (bar chart).
+Running the script produces:
+- Console output with dataset details, accuracy (~0.8212), classification report, and confusion matrix.
+- A confusion matrix plot (`confusion_matrix.png`) showing true/false positives and negatives.
+- A CSV file (`titanic_logreg_predictions.csv`) with test set predictions.
 
 ## Next Steps
 - Compare with other models (e.g., Random Forest, XGBoost).
@@ -151,10 +133,10 @@ The model was trained and evaluated, producing the following results:
 - Analyze feature importance to identify key predictors of survival.
 
 ## Notes
-- The scripts use `random_state=42` for reproducibility.
+- The script uses `random_state=42` for reproducibility.
 - Accuracy (~0.82) and confusion matrix values may vary slightly with different splits or datasets.
-- If file paths are incorrect, update `data_path` in `titanic_model_logreg.py` or `predictions_path` in `plot_predictions_distribution.py`.
-- The plots are saved as files to suit non-interactive execution. To display interactively, replace `plt.savefig()` with `plt.show()`.
+- If the dataset path is incorrect, update `data_path` in `titanic_model_logreg.py`.
+- The confusion matrix plot is saved as `confusion_matrix.png` to suit non-interactive execution.
 
 ## License
 This project is for educational purposes and can be freely used or modified.
