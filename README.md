@@ -1,4 +1,11 @@
 # Titanic Logistic Regression Model
+<p align="center">
+  <a href="https://youtu.be/H7h5GMPuOb0?si=N8hVZrpIyc47wEfm">
+    <img src="https://img.youtube.com/vi/H7h5GMPuOb0/maxresdefault.jpg" alt="Titanic Logistic Regression Model Video">
+  </a>
+  <br/>
+  <em>Click the thumbnail to watch on YouTube</em>
+</p>
 
 ## Project Overview
 This project trains a logistic regression model to predict passenger survival on the Titanic using the preprocessed dataset `train_scaled.csv`. The goal is to build a baseline machine learning model for binary classification (survived or not survived), evaluate its performance, and visualize the results. The project includes data loading, train-test split, model training, evaluation with accuracy and confusion matrix, visualization using Seaborn, and saving predictions to a CSV file. This serves as a foundational exercise in machine learning, demonstrating key skills like data preprocessing, model training, and evaluation.
